@@ -17,5 +17,9 @@ module MyEnumerable
   end
 
 class MyList
-
+   include MyEnumerable
+  def initialize(*args)
+    @list = []
+    args.each { |arg| @list << arg }
+  end
 end
