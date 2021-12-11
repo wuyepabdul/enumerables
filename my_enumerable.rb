@@ -15,11 +15,21 @@ module MyEnumerable
       results
     end
   end
+end
 
 class MyList
-   include MyEnumerable
+  include MyEnumerable
   def initialize(*args)
     @list = []
     args.each { |arg| @list << arg }
+  end
+  def each
+    return to_enum(:each) unless block_given?
+    i = 0
+    while i < @list.length
+      yield @list[i]
+      i += 1
+    end
+    @list
   end
 end
