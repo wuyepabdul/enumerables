@@ -15,3 +15,7 @@ module MyEnumerable
       results
     end
   end
+
+class MyList
+
+end
